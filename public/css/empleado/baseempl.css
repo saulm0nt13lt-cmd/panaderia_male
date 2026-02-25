@@ -1,0 +1,122 @@
+/* VARIABLES DE MARCA - MALE*/
+:root{
+  --primary:#D97706;      /* miel */
+  --secondary:#6B3E2E;    /* chocolate */
+  --accent:#F472B6;       /* rosa pastel */
+  --bg:#FFF7ED;           /* crema */
+  --text:#3b1d12;
+  --border:#e5e7eb;
+  --shadow:0 10px 25px rgba(0,0,0,.12);
+  --radius:14px;
+}
+
+/*RESET / GLOBAL*/
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  min-height:100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #FFF4E8;
+  color: var(--text);
+}
+
+.container{
+  width:100%;
+}
+
+/*TEXTOS*/
+h1,h2,h3,h4{
+  margin:0;
+  color: var(--secondary);
+}
+
+small{
+  color:#6b7280;
+}
+
+/* BOTONES GENERALES*/
+.btn{
+  display:inline-block;
+  padding:10px 16px;
+  border-radius:10px;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+.btn-primary{
+  background: linear-gradient(135deg,#FBBF24,var(--primary));
+  color:#fff;
+}
+
+.btn-primary:hover{
+  filter:brightness(.95);
+}
+
+.btn-ghost{
+  background:transparent;
+  border:1px solid var(--primary);
+  color:var(--primary);
+}
+
+/* LINKS */
+.link{
+  color:var(--primary);
+  font-weight:700;
+  text-decoration:none;
+}
+
+.link:hover{
+  text-decoration:underline;
+}
+/* ===== BOTÓN CREAR USUARIO (AZUL PRO) ===== */
+.btn-create{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 12px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  background-color: #2563eb; /* AZUL */
+  color: #ffffff;           /* LETRAS BLANCAS */
+  border: none;
+  cursor: pointer;
+
+  box-shadow: 0 10px 22px rgba(37, 99, 235, .35);
+  transition: all .2s ease;
+}
+
+/* icono */
+.btn-create i{
+  font-size: 16px;
+  line-height: 1;
+  color: #ffffff; /* icono blanco */
+}
+
+/* hover → azul más intenso */
+.btn-create:hover{
+  background-color: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(37, 99, 235, .45);
+}
+/* ===== SCOPE EMPLEADO ===== */
+/* Todo lo que esté aquí SOLO afecta si el body tiene class="empleado-body" */
+
+.empleado-body {
+  background: #f6efe6;
+}
+
+/* Por si base.css o admin meten imágenes/fondos, aquí se controla el empleado */
+.empleado-body .main-content {
+  min-height: 100vh;
+}

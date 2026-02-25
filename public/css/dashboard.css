@@ -1,0 +1,625 @@
+:root{
+  --bg:#f4f5f9;
+  --sidebar:#0b1020;
+  --panel:#ffffff;
+  --card:#ffffff;
+  --line:#e5e7eb;
+  --text:#111827;
+  --muted:#6b7280;
+  --brand1:#ffb300;
+  --brand2:#ff6a00;
+  --shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+*{ box-sizing:border-box; }
+html,body{ height:100%; }
+
+/* ✅ SOLO PARA DASHBOARD (encapsulado) */
+.dash{
+  display:flex;
+  width:100%;
+  min-height:100vh;
+  align-items:stretch;
+}
+
+/* ===== Sidebar (NO se encoge) ===== */
+.dash .sidebar{
+  flex:0 0 280px;
+  width:280px;
+  min-width:280px;
+  max-width:280px;
+  flex-shrink:0;
+
+  padding:22px 18px;
+  background:var(--sidebar);
+  color:#eaf0ff;
+
+  position:sticky;
+  top:0;
+  height:100vh;
+
+  overflow-y:auto;
+  overflow-x:hidden;
+}
+
+.dash .brand{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  padding:14px;
+  border-radius:16px;
+  background:#0f1730;
+  margin-bottom:16px;
+}
+.dash .brand .logo{
+  font-weight:900;
+  font-size:22px;
+  background:linear-gradient(90deg,var(--brand1),var(--brand2));
+  color:transparent;
+}
+.dash .brand small{
+  font-size:12px;
+  color:#9ca3af;
+}
+
+/* Menu */
+.dash .menu{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.dash .menu a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px 14px;
+  border-radius:12px;
+  text-decoration:none;
+  color:#eaf0ff;
+  background:#0f1730;
+  transition:.2s;
+}
+.dash .menu a:hover{ background:#172554; }
+.dash .menu a.active{
+  background:linear-gradient(90deg,rgba(255,180,0,.25),rgba(255,106,0,.2));
+}
+
+/* Logout */
+.dash .logout{ margin-top:18px; }
+.dash .logout a{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:12px 14px;
+  border-radius:12px;
+  text-decoration:none;
+  color:#eaf0ff;
+  background:#0f1730;
+}
+.dash .logout a:hover{ background:rgba(255,80,80,.25); }
+
+.dash .btn-logout{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:none;
+  background:#7f1d1d;
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+.dash .btn-logout:hover{ background:#991b1b; }
+
+/* ===== Main ===== */
+.dash .content{
+  flex:1 1 auto;
+  min-width:0;
+  width:100%;
+  overflow:hidden;
+  padding:18px;
+}
+
+/* Topbar */
+.dash .topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 18px;
+  border-radius:16px;
+  background:var(--panel);
+  box-shadow:var(--shadow);
+  margin-bottom:18px;
+}
+.dash .topbar h1{
+  margin:0;
+  font-size:18px;
+  font-weight:900;
+  color:var(--text);
+}
+.dash .userchip strong{
+  font-size:14px;
+  color:var(--text);
+}
+.dash .userchip small{
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* ✅ clase muted (te faltaba) */
+.dash .muted{
+  font-size:13px;
+  color:var(--muted);
+  font-weight:700;
+}
+
+/* =========================
+   DASHBOARD CARDS (FIX)
+========================= */
+.dash .cards{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:18px;
+  margin-bottom:18px;
+  align-items:stretch;
+}
+
+.dash .card{
+  padding:18px;
+  border-radius:16px;
+  background:var(--card);
+  box-shadow:var(--shadow);
+
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:160px;
+}
+
+.dash .card h3{
+  margin:0 0 8px;
+  font-size:13px;
+  color:var(--muted);
+  font-weight:800;
+}
+
+.dash .big{
+  font-size:32px;
+  font-weight:900;
+  color:var(--text);
+  line-height:1.1;
+}
+
+/* Panel */
+.dash .panel{
+  padding:18px;
+  border-radius:16px;
+  background:var(--panel);
+  box-shadow:var(--shadow);
+}
+.dash .panel h2{
+  margin:0 0 12px;
+  font-size:14px;
+  font-weight:900;
+  color:var(--text);
+}
+
+/* =========================
+   ACTIONS – BOTONES
+========================= */
+.dash .actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+.dash .actions a,
+.dash .actions button{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+
+  height:44px;
+  padding:0 16px;
+  border-radius:12px;
+
+  font-weight:900;
+  font-size:14px;
+  line-height:1;
+
+  text-decoration:none;
+  border:none;
+  cursor:pointer;
+
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+.dash .actions a:hover,
+.dash .actions button:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(17,24,39,.18);
+}
+
+.dash .actions button{
+  color:#1b1308;
+  background:linear-gradient(90deg,var(--brand1),var(--brand2));
+}
+.dash .actions button:hover{ filter:brightness(1.05); }
+
+/* AZUL */
+.dash .actions .btn-create{
+  background:#2563eb;
+  color:#fff;
+}
+.dash .actions .btn-create:hover{ filter:brightness(1.05); }
+
+/* MORADO FIJO */
+.dash .actions .btn-special{
+  background:#7c3aed;
+  color:#fff;
+}
+.dash .actions .btn-special:hover{ filter:brightness(1.05); }
+
+/* =========================
+   PEDIDOS ESPECIALES (CARDS)
+========================= */
+.dash .so-wrap{ margin-top:16px; }
+.dash .so-head h2{ margin:0; font-size:14px; font-weight:900; color:var(--text); }
+.dash .so-head p{ margin:6px 0 12px; color:var(--muted); font-size:12px; font-weight:700; }
+
+.dash .so-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(360px, 1fr));
+  gap:18px;
+}
+
+.dash .so-card{
+  background:rgba(255,255,255,.85);
+  border:1px solid rgba(17,24,39,.08);
+  border-radius:20px;
+  padding:20px;
+  box-shadow:var(--shadow);
+  transition:transform .18s ease, box-shadow .18s ease;
+  position:relative;
+  overflow:hidden;
+  min-height:260px;
+}
+
+.dash .so-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 25px 45px rgba(17,24,39,.18);
+}
+
+.dash .so-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.dash .so-title strong{ display:block; font-size:16px; font-weight:900; color:var(--text); }
+.dash .so-title small{ display:block; font-size:13px; color:var(--muted); font-weight:700; }
+
+.dash .so-badge{
+  font-size:13px;
+  font-weight:900;
+  padding:8px 14px;
+  border-radius:999px;
+  letter-spacing:.5px;
+  background:rgba(17,24,39,.08);
+  color:var(--text);
+  line-height:1;
+}
+
+.dash .so-meta{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:13px;
+  color:var(--muted);
+  font-weight:700;
+  margin-bottom:12px;
+}
+.dash .so-meta b{ color:var(--text); }
+.dash .so-neg{ color:#b91c1c; }
+
+.dash .so-money{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:10px;
+  font-size:13px;
+  color:var(--muted);
+  font-weight:700;
+  margin-bottom:10px;
+}
+.dash .so-money b{ color:var(--text); }
+
+.dash .so-desc{
+  margin:0 0 12px;
+  font-size:13px;
+  color:#111827;
+  opacity:.85;
+  font-weight:700;
+  line-height:1.4;
+  max-height:none;
+}
+
+.dash .so-actions{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  margin-top:14px;
+}
+
+.dash .so-select{
+  height:36px;
+  border-radius:10px;
+  border:1px solid rgba(17,24,39,.12);
+  padding:0 10px;
+  font-weight:800;
+  font-size:13px;
+  background:#fff;
+}
+
+.dash .so-done{
+  height:36px;
+  padding:0 14px;
+  border:none;
+  border-radius:10px;
+  font-weight:900;
+  font-size:13px;
+  cursor:pointer;
+  background:#16a34a;
+  color:#fff;
+}
+
+/* Mac tags */
+.dash .so-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  opacity:.12;
+}
+.dash .so-normal{ border-left:6px solid #7c3aed; }
+.dash .so-ok{ border-left:6px solid #16a34a; }
+.dash .so-warn{ border-left:6px solid #f59e0b; }
+.dash .so-urgent{ border-left:6px solid #dc2626; }
+
+.dash .so-normal::before{ background:radial-gradient(circle at 10% 10%, #7c3aed, transparent 55%); }
+.dash .so-ok::before{ background:radial-gradient(circle at 10% 10%, #16a34a, transparent 55%); }
+.dash .so-warn::before{ background:radial-gradient(circle at 10% 10%, #f59e0b, transparent 55%); }
+.dash .so-urgent::before{ background:radial-gradient(circle at 10% 10%, #dc2626, transparent 55%); }
+
+.dash .so-empty{
+  padding:14px;
+  border-radius:14px;
+  background:rgba(255,255,255,.75);
+  border:1px dashed rgba(17,24,39,.15);
+  color:var(--muted);
+  font-weight:800;
+}
+
+/* ====== Responsive ====== */
+@media (max-width:980px){
+  .dash{ flex-direction:column; }
+
+  .dash .sidebar{
+    position:relative;
+    width:100%;
+    min-width:100%;
+    max-width:100%;
+    height:auto;
+  }
+
+  /* ✅ MANTENER 3 tarjetas en horizontal */
+  .dash .cards{
+    grid-template-columns:repeat(3, minmax(0,1fr));
+  }
+
+  /* ✅ pedidos especiales: 2 columnas en laptop */
+  .dash .so-grid{
+    grid-template-columns:repeat(2, minmax(0,1fr));
+  }
+}
+
+/* ✅ solo móvil real */
+@media (max-width:520px){
+  .dash .cards{ grid-template-columns:1fr; }
+  .dash .so-grid{ grid-template-columns:1fr; }
+
+  .dash .menu{
+    flex-direction:row;
+    overflow:auto;
+  }
+  .dash .menu a{ white-space:nowrap; }
+}
+/* =========================
+   SIDEBAR BLINDADO (GANA SIEMPRE)
+   Solo dentro del dashboard: .dash > .sidebar
+========================= */
+
+.dash > .sidebar{
+  flex:0 0 280px !important;
+  width:280px !important;
+  min-width:280px !important;
+  max-width:280px !important;
+  flex-shrink:0 !important;
+
+  position:sticky !important;
+  top:0 !important;
+  height:100vh !important;
+
+  padding:22px 18px !important;
+  background:#0b1020 !important;
+  color:#eaf0ff !important;
+
+  overflow-y:auto !important;
+  overflow-x:hidden !important;
+}
+
+.dash > .sidebar .brand{
+  display:flex !important;
+  align-items:flex-end !important;
+  justify-content:space-between !important;
+  padding:14px !important;
+  border-radius:16px !important;
+  background:#0f1730 !important;
+  margin-bottom:16px !important;
+}
+
+.dash > .sidebar .brand small{
+  font-size:12px !important;
+  color:#9ca3af !important;
+  font-weight:700 !important;
+}
+
+.dash > .sidebar .menu{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:10px !important;
+}
+
+.dash > .sidebar .menu a{
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+  padding:12px 14px !important;
+  border-radius:12px !important;
+
+  text-decoration:none !important;
+  color:#eaf0ff !important;
+  background:#0f1730 !important;
+
+  transition:.2s !important;
+}
+
+.dash > .sidebar .menu a:hover{
+  background:#172554 !important;
+}
+
+.dash > .sidebar .menu a.active{
+  background:linear-gradient(90deg,rgba(255,180,0,.25),rgba(255,106,0,.2)) !important;
+}
+
+/* Logout button */
+.dash > .sidebar .btn-logout{
+  width:100% !important;
+  margin-top:14px !important;
+  padding:12px 14px !important;
+  border-radius:12px !important;
+
+  border:none !important;
+  background:#7f1d1d !important;
+  color:#fff !important;
+
+  font-weight:900 !important;
+  cursor:pointer !important;
+
+  display:flex !important;
+  align-items:center !important;
+  gap:10px !important;
+}
+
+.dash > .sidebar .btn-logout:hover{
+  background:#991b1b !important;
+}
+
+/* Responsive */
+@media (max-width:980px){
+  .dash{ flex-direction:column !important; }
+  .dash > .sidebar{
+    position:relative !important;
+    width:100% !important;
+    min-width:100% !important;
+    max-width:100% !important;
+    height:auto !important;
+  }
+
+  .dash > .sidebar .menu{
+    flex-direction:row !important;
+    overflow:auto !important;
+  }
+
+  .dash > .sidebar .menu a{
+    white-space:nowrap !important;
+  }
+}
+/* =========================
+   PEDIDO ESPECIAL – CARTA XL
+========================= */
+
+/* Grid: menos tarjetas por fila = más grandes */
+.dash .so-grid{
+  grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+  gap: 22px;
+}
+
+/* Carta principal */
+.dash .so-card{
+  padding: 26px !important;
+  border-radius: 24px !important;
+  min-height: 320px !important;
+  font-size: 15px;
+}
+
+/* Cliente */
+.dash .so-title strong{
+  font-size: 20px !important;
+  font-weight: 900;
+}
+
+.dash .so-title small{
+  font-size: 14px !important;
+}
+
+/* Badges (NORMAL / AUTOMÁTICO) */
+.dash .so-badge{
+  font-size: 14px !important;
+  padding: 10px 18px !important;
+}
+
+/* Meta info (fecha / días) */
+.dash .so-meta{
+  font-size: 15px !important;
+  margin-bottom: 16px !important;
+}
+
+/* Dinero */
+.dash .so-money{
+  font-size: 15px !important;
+  gap: 14px !important;
+}
+
+/* Descripción */
+.dash .so-desc{
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  margin-bottom: 18px !important;
+}
+
+/* Acciones */
+.dash .so-actions{
+  margin-top: 18px;
+}
+
+/* Select */
+.dash .so-select{
+  height: 42px;
+  font-size: 14px;
+}
+
+/* Botón entregado */
+.dash .so-done{
+  height: 42px;
+  padding: 0 20px;
+  font-size: 14px;
+  border-radius: 14px;
+}
+
+/* Hover más pro */
+.dash .so-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 30px 60px rgba(17,24,39,.22);
+}

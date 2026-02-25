@@ -1,0 +1,741 @@
+:root{
+  --bg:#fff4e9;
+  --panel:rgba(255,255,255,.72);
+  --stroke:rgba(17,24,39,.10);
+  --stroke2:rgba(17,24,39,.14);
+
+  --text:#111827;
+  --muted:#6b7280;
+
+  --blue:#2563eb;
+  --blue2:#1d4ed8;
+  --green:#16a34a;
+  --red:#b91c1c;
+  --purple:#7c3aed;
+
+  --shadow:0 18px 40px rgba(17,24,39,.10);
+  --shadow2:0 10px 24px rgba(17,24,39,.08);
+  --radius:18px;
+}
+
+/* Page */
+.sales-page{ width:100%; padding:12px 10px; }
+
+/* Header */
+.sales-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:16px;
+  margin-bottom:14px;
+}
+.sales-title{
+  margin:0;
+  font-size:40px;
+  font-weight:950;
+  letter-spacing:-.8px;
+  color:var(--text);
+}
+.sales-subtitle{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-weight:800;
+}
+
+/* Actions */
+.sales-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap:wrap;
+}
+
+/* Buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:14px;
+  border:1px solid var(--stroke);
+  background:rgba(255,255,255,.75);
+  color:var(--text);
+  font-weight:950;
+  box-shadow:var(--shadow2);
+  cursor:pointer;
+  text-decoration:none;
+  transition:transform .10s ease, border-color .10s ease, box-shadow .10s ease;
+}
+.btn:hover{
+  transform:translateY(-1px);
+  border-color:var(--stroke2);
+  box-shadow:0 16px 30px rgba(17,24,39,.12);
+}
+.btn-dark{
+  background:linear-gradient(180deg, rgba(124,58,237,.14), rgba(124,58,237,.06));
+  border-color:rgba(124,58,237,.22);
+  color:#4c1d95;
+}
+.btn-green{
+  background:linear-gradient(180deg, rgba(22,163,74,.14), rgba(22,163,74,.06));
+  border-color:rgba(22,163,74,.22);
+  color:#14532d;
+}
+.btn-blue{
+  background:linear-gradient(180deg, rgba(37,99,235,.20), rgba(37,99,235,.10));
+  border-color:rgba(37,99,235,.28);
+  color:#0b2a6f;
+}
+.w100{ width:100%; }
+
+/* Layout grid */
+.sales-grid{
+  display:grid;
+  grid-template-columns:1.25fr .95fr;
+  gap:14px;
+  align-items:stretch;
+}
+
+/* Panels (glass) */
+.panel{
+  background:
+    radial-gradient(1200px 500px at 20% -10%, rgba(37,99,235,.14), transparent 55%),
+    radial-gradient(900px 450px at 90% 0%, rgba(124,58,237,.12), transparent 60%),
+    var(--panel);
+  border:1px solid var(--stroke);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+
+  display:flex;
+  flex-direction:column;
+  min-height:720px;
+}
+
+/* Panel head */
+.panel-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:14px;
+  border-bottom:1px solid rgba(17,24,39,.08);
+  flex:0 0 auto;
+}
+.panel-head h3{
+  margin:0;
+  font-size:16px;
+  font-weight:950;
+  color:var(--text);
+}
+
+/* Inputs */
+.input{
+  width:100%;
+  padding:11px 12px;
+  border-radius:14px;
+  border:1px solid rgba(17,24,39,.12);
+  outline:none;
+  background:rgba(255,255,255,.85);
+  color:var(--text);
+  font-weight:800;
+}
+.input::placeholder{ color:rgba(17,24,39,.42); }
+.input.sm{ width:90px; text-align:right; }
+
+/* Search wrap */
+.search-wrap{ width:420px; max-width:48vw; }
+
+/* ✅ Catalog: scroll fijo (no crece el panel) */
+#catalog{
+  flex:1 1 auto;
+  min-height:0;
+  overflow:auto;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  scrollbar-gutter:stable;
+}
+
+/* Scroll bonito */
+#catalog::-webkit-scrollbar,
+.ticket-table::-webkit-scrollbar,
+.recent .recent-list::-webkit-scrollbar{
+  width:10px;
+}
+#catalog::-webkit-scrollbar-thumb,
+.ticket-table::-webkit-scrollbar-thumb,
+.recent .recent-list::-webkit-scrollbar-thumb{
+  background:rgba(17,24,39,.12);
+  border-radius:999px;
+}
+#catalog::-webkit-scrollbar-track,
+.recent .recent-list::-webkit-scrollbar-track{
+  background:rgba(17,24,39,.06);
+  border-radius:999px;
+}
+
+/* Catalog item */
+.catalog-item{
+  width:100%;
+  text-align:left;
+  border:1px solid rgba(17,24,39,.10);
+  background:rgba(255,255,255,.72);
+  border-radius:16px;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  box-shadow:0 10px 20px rgba(17,24,39,.06);
+  cursor:pointer;
+  transition:transform .10s ease, border-color .10s ease, background .10s ease;
+}
+.catalog-item:hover{
+  transform:translateY(-1px);
+  border-color:rgba(37,99,235,.22);
+  background:rgba(255,255,255,.85);
+}
+.ci-left{ min-width:0; }
+.ci-name{ font-weight:950; color:var(--text); line-height:1.1; }
+.ci-meta{
+  margin-top:6px;
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+}
+.chip{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(17,24,39,.10);
+  background:rgba(255,255,255,.65);
+  font-weight:950;
+  font-size:12px;
+  color:rgba(17,24,39,.82);
+}
+.chip.ok{ background:rgba(22,163,74,.12); border-color:rgba(22,163,74,.18); }
+.chip.low{ background:rgba(185,28,28,.12); border-color:rgba(185,28,28,.18); }
+
+.ci-right{ display:flex; align-items:center; gap:12px; }
+.ci-price{ font-weight:950; color:var(--text); }
+.ci-add{
+  width:38px;
+  height:38px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(37,99,235,.20);
+  background:rgba(37,99,235,.10);
+  color:var(--blue2);
+}
+
+/* Ticket */
+.ticket{ padding:12px; flex:0 0 auto; }
+.ticket-mini{ font-weight:950; color:rgba(17,24,39,.55); }
+
+.ticket-table{
+  border:1px solid rgba(17,24,39,.10);
+  border-radius:16px;
+  overflow:auto;
+  background:rgba(255,255,255,.60);
+}
+
+/* Ticket rows */
+.t-row{
+  display:grid;
+  grid-template-columns:1fr 140px 120px 44px;
+  gap:10px;
+  align-items:center;
+  padding:10px 12px;
+  border-bottom:1px solid rgba(17,24,39,.08);
+}
+.t-row:last-child{ border-bottom:none; }
+.t-head{
+  background:rgba(17,24,39,.04);
+  font-weight:950;
+  color:rgba(17,24,39,.70);
+}
+
+.t-prod .tp-name{ font-weight:950; color:var(--text); }
+.t-prod .tp-sub{
+  margin-top:2px;
+  font-size:12px;
+  font-weight:800;
+  color:rgba(17,24,39,.55);
+}
+
+.t-qty{
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:8px;
+}
+.qty-btn{
+  width:32px;
+  height:32px;
+  border-radius:12px;
+  border:1px solid rgba(17,24,39,.12);
+  background:rgba(255,255,255,.80);
+  font-weight:950;
+  cursor:pointer;
+}
+.qty-btn:hover{ border-color:rgba(37,99,235,.22); }
+
+.qty-in{
+  width:56px;
+  text-align:center;
+  border-radius:12px;
+  padding:7px 6px;
+  border:1px solid rgba(17,24,39,.10);
+  background:rgba(255,255,255,.85);
+  font-weight:950;
+  outline:none;
+}
+.qty-in:focus{
+  border-color:rgba(37,99,235,.35);
+  box-shadow:0 0 0 4px rgba(37,99,235,.12);
+}
+
+.t-imp{ font-weight:950; text-align:right; color:var(--text); }
+.t-x{ display:flex; justify-content:flex-end; }
+.x-btn{
+  width:34px;
+  height:34px;
+  border-radius:12px;
+  border:1px solid rgba(185,28,28,.18);
+  background:rgba(185,28,28,.10);
+  color:var(--red);
+  cursor:pointer;
+}
+.x-btn:hover{ border-color:rgba(185,28,28,.30); }
+
+.t-empty{
+  padding:18px;
+  text-align:center;
+  color:rgba(17,24,39,.55);
+  font-weight:900;
+}
+
+/* Totals */
+.ticket-totals{
+  margin-top:12px;
+  padding:12px;
+  border-radius:16px;
+  border:1px solid rgba(17,24,39,.10);
+  background:rgba(255,255,255,.70);
+}
+.ticket-totals .row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  padding:9px 0;
+  border-bottom:1px dashed rgba(17,24,39,.14);
+}
+.ticket-totals .row:last-child{ border-bottom:none; }
+.ticket-totals .row span{ color:rgba(17,24,39,.72); font-weight:900; }
+.ticket-totals .row strong{ font-weight:950; color:var(--text); }
+.ticket-totals .row.total strong{ font-size:20px; }
+
+.inline{ display:flex; align-items:center; gap:8px; }
+.currency{ font-weight:950; color:rgba(17,24,39,.75); }
+
+/* Recent */
+.recent{
+  margin:12px;
+  margin-top:0;
+  padding:12px;
+  border-radius:16px;
+  border:1px solid rgba(17,24,39,.10);
+  background:rgba(255,255,255,.70);
+
+  flex:1 1 auto;
+  min-height:0;
+}
+.recent-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:10px;
+}
+.recent h4{
+  margin:0;
+  font-size:15px;
+  font-weight:950;
+  color:var(--text);
+}
+.link-mini{
+  font-weight:950;
+  color:var(--purple);
+  text-decoration:none;
+}
+.link-mini:hover{ text-decoration:underline; }
+
+.recent-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  max-height:260px;
+  overflow:auto;
+  padding-right:6px;
+}
+
+.recent-item{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px;
+  border-radius:14px;
+  border:1px solid rgba(17,24,39,.08);
+  background:rgba(255,255,255,.78);
+}
+.r-title{ font-weight:950; color:var(--text); }
+.r-sub{
+  margin-top:2px;
+  font-size:12px;
+  font-weight:800;
+  color:rgba(17,24,39,.55);
+}
+.r-total{ font-weight:950; color:var(--text); }
+
+/* Alerts */
+.alert{
+  margin:10px 0 12px;
+  padding:12px;
+  border-radius:16px;
+  border:1px solid rgba(17,24,39,.12);
+  background:rgba(255,255,255,.80);
+  font-weight:900;
+}
+.alert.success{
+  border-color:rgba(22,163,74,.20);
+  background:rgba(22,163,74,.10);
+  color:#14532d;
+}
+.alert.danger{
+  border-color:rgba(185,28,28,.20);
+  background:rgba(185,28,28,.10);
+  color:#7f1d1d;
+}
+
+/* Responsive */
+@media (max-width:1100px){
+  .sales-grid{ grid-template-columns:1fr; }
+  .search-wrap{ width:100%; max-width:100%; }
+  .panel{ min-height:auto; }
+  #catalog{ max-height:380px; }
+  .recent-list{ max-height:320px; }
+}
+@media (max-width:768px){
+  .sales-head{ flex-direction:column; align-items:flex-start; }
+  .sales-actions{ width:100%; justify-content:flex-start; }
+  .sales-title{ font-size:34px; }
+  .t-row{ grid-template-columns:1fr 120px 110px 40px; font-size:13px; }
+  .ci-meta{ display:none; }
+}
+
+/* Asegura que el panel izquierdo no crezca infinito */
+.sales-grid > .panel:first-child{
+  height: calc(128vh - 210px);   
+  min-height: 620px;
+}
+
+/* Catálogo con scroll sí o sí */
+.sales-grid > .panel:first-child #catalog{
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto !important;
+  overflow-x: hidden;
+  min-height: 0;
+  padding-right: 8px;
+}
+
+/* Por si traías reglas que le quitan altura */
+.catalog{ max-height: none !important; }
+/* =========================
+   ALTURA REAL IGUAL A TICKET
+   (hasta abajo de la pantalla)
+========================= */
+
+/* Altura base de la página */
+.sales-page{
+  min-height: calc(100vh - 80px); /* ajusta 80px si tu header cambia */
+}
+
+/* Grid ocupa todo el alto disponible */
+.sales-grid{
+  min-height: calc(100vh - 140px); /* header + padding */
+  align-items: stretch;
+}
+
+/* Ambos paneles llenan el alto */
+.sales-grid > .panel{
+  height: 100%;
+  min-height: 0;
+}
+
+/* PANEL IZQUIERDO (Catálogo) */
+.sales-grid > .panel:first-child{
+  display: flex;
+  flex-direction: column;
+}
+
+/* El header del catálogo no crece */
+.sales-grid > .panel:first-child .panel-head{
+  flex: 0 0 auto;
+}
+
+/* 🔥 EL CATÁLOGO SE ESTIRA HASTA ABAJO */
+.sales-grid > .panel:first-child #catalog{
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+/* PANEL DERECHO (Ticket) */
+.sales-grid > .panel:last-child{
+  display: flex;
+  flex-direction: column;
+}
+.sales-grid{
+  min-height: calc(100vh - 150px); /* prueba 130, 150, 160 */
+}
+/* =========================
+   FIX SIN ROMPER SCROLL GLOBAL (solo Ventas)
+========================= */
+
+/* No tocar body/html/main/dash. Solo la estructura de ventas */
+.sales-page{
+  display:flex;
+  flex-direction:column;
+}
+
+/* La grilla ocupa el espacio y permite que los hijos hagan scroll interno */
+.sales-grid{
+  align-items:stretch;
+}
+
+.sales-grid > .panel{
+  display:flex;
+  flex-direction:column;
+}
+
+
+#catalog{
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+@media (min-width: 981px){
+  #catalog{
+    max-height: calc(100vh - 260px); /* ajusta 240-320 según tu header */
+  }
+}
+
+@media (max-width: 980px){
+  #catalog{
+    max-height: 380px;
+  }
+}
+/* =========================================================
+   ✅ CATÁLOGO PERRÓN (SEGURO)
+   NO toca scroll / height / overflow del layout
+========================================================= */
+
+#catalog{
+  padding:14px;     /* solo estética */
+  gap:14px;         /* solo estética */
+}
+
+/* Grupo / categoría */
+#catalog .cat-group{
+  border-radius:20px;
+  border:1px solid rgba(17,24,39,.10);
+  background:rgba(255,255,255,.58);
+  box-shadow:0 18px 34px rgba(17,24,39,.07);
+}
+
+/* Encabezado de categoría */
+#catalog .cat-title{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+
+  padding:10px 12px;
+  border-bottom:1px solid rgba(17,24,39,.08);
+  background:rgba(255,255,255,.70);
+
+  font-weight:950;
+  letter-spacing:-.2px;
+  color:rgba(17,24,39,.82);
+}
+
+/* ✅ SOLO el texto (NO afecta al dot) */
+#catalog .cat-title > span:not(.cat-dot){
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+
+/* Puntito */
+#catalog .cat-dot{
+  width:10px;
+  height:10px;
+  border-radius:999px;
+  background:rgba(37,99,235,.72);
+  box-shadow:0 0 0 4px rgba(37,99,235,.14);
+  flex:0 0 auto;
+}
+
+/* Contador */
+#catalog .cat-title small{
+  font-size:12px;
+  font-weight:950;
+  color:rgba(17,24,39,.62);
+
+  padding:6px 10px;
+  border-radius:999px;
+  border:1px solid rgba(17,24,39,.10);
+  background:rgba(255,255,255,.80);
+}
+
+/* Lista de productos dentro del grupo */
+#catalog .cat-list{
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+/* Tarjeta producto */
+#catalog .catalog-item{
+  border-radius:18px;
+  border:1px solid rgba(17,24,39,.10);
+  background:rgba(255,255,255,.82);
+  box-shadow:0 12px 22px rgba(17,24,39,.06);
+
+  padding:14px 14px;
+  transition:transform .14s ease, box-shadow .14s ease, border-color .14s ease, background .14s ease;
+}
+
+#catalog .catalog-item:hover{
+  transform:translateY(-2px);
+  border-color:rgba(37,99,235,.22);
+  background:rgba(255,255,255,.92);
+  box-shadow:0 18px 34px rgba(17,24,39,.10);
+}
+
+#catalog .catalog-item:active{ transform:translateY(0); }
+
+/* Nombre / meta */
+#catalog .ci-name{
+  font-size:15px;
+  font-weight:950;
+  letter-spacing:-.2px;
+}
+
+#catalog .ci-meta{ margin-top:7px; }
+
+/* Chips */
+#catalog .chip{
+  padding:6px 11px;
+  border-radius:999px;
+  border:1px solid rgba(17,24,39,.10);
+  background:rgba(255,255,255,.70);
+  font-weight:950;
+  font-size:11px;
+  color:rgba(17,24,39,.78);
+}
+
+#catalog .chip.ok{
+  background:rgba(22,163,74,.12);
+  border-color:rgba(22,163,74,.18);
+  color:#14532d;
+}
+
+#catalog .chip.low{
+  background:rgba(185,28,28,.12);
+  border-color:rgba(185,28,28,.18);
+  color:#7f1d1d;
+}
+
+/* Precio y botón */
+#catalog .ci-price{
+  font-size:14px;
+  font-weight:950;
+  letter-spacing:-.2px;
+}
+
+#catalog .ci-add{
+  width:44px;
+  height:44px;
+  border-radius:16px;
+
+  border:1px solid rgba(37,99,235,.24);
+  background:rgba(37,99,235,.12);
+  box-shadow:0 10px 18px rgba(37,99,235,.08);
+  transition:transform .12s ease, box-shadow .12s ease, background .12s ease, border-color .12s ease;
+}
+
+#catalog .catalog-item:hover .ci-add{
+  transform:scale(1.06);
+  background:rgba(37,99,235,.16);
+  border-color:rgba(37,99,235,.32);
+  box-shadow:0 16px 26px rgba(37,99,235,.12);
+}
+
+#catalog .catalog-item:active .ci-add{ transform:scale(.98); }
+
+/* Colores del dot por categoría (si coincide con tu data-cat) */
+#catalog .cat-group[data-cat="Panadería"] .cat-dot{
+  background:rgba(22,163,74,.72);
+  box-shadow:0 0 0 4px rgba(22,163,74,.14);
+}
+#catalog .cat-group[data-cat="Pasteles"] .cat-dot,
+#catalog .cat-group[data-cat="Pastelería"] .cat-dot{
+  background:rgba(124,58,237,.72);
+  box-shadow:0 0 0 4px rgba(124,58,237,.14);
+}
+#catalog .cat-group[data-cat="Roscas"] .cat-dot{
+  background:rgba(245,158,11,.72);
+  box-shadow:0 0 0 4px rgba(245,158,11,.14);
+}
+#catalog .cat-group[data-cat="Otros"] .cat-dot{
+  background:rgba(100,116,139,.72);
+  box-shadow:0 0 0 4px rgba(100,116,139,.14);
+}
+
+/* Mobile */
+@media (max-width:768px){
+  #catalog .ci-meta{ display:none; }
+}
+@media (max-width:768px){
+  .search-wrap{ width:100%; max-width:100%; }
+  .panel-head{ flex-direction:column; align-items:flex-start; }
+}
+/* =========================================================
+   ✅ FIX: Ventas (EMPLEADO) sin franja/gradiente azul
+   No afecta Admin porque va scoped a .empleado-body
+========================================================= */
+
+body.empleado-body{
+  background: var(--bg);              /* mismo fondo beige */
+}
+
+/* quita los radial gradients azules/morados SOLO en empleado */
+body.empleado-body .panel{
+  background: var(--panel) !important;
+}
+
+/* opcional: que se vea idéntico al spacing del admin */
+body.empleado-body .sales-page{
+  padding: 26px 24px;
+}

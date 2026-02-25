@@ -1,0 +1,849 @@
+/* =========================
+   PRODUCTS CSS (CORREGIDO)
+   - NO rompe sidebar
+   - Todo encapsulado a .products-page
+========================= */
+
+/* ===== Products Page ===== */
+.products-page{
+  padding: 10px 6px;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+/* Header */
+.products-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:16px;
+  margin: 10px 4px 18px; /* igual feeling que Users */
+}
+
+.products-title{
+  margin:0;
+  font-size:36px;
+  font-weight:900;
+  letter-spacing:-.7px;
+  color:#6b3f2a
+}
+
+.products-subtitle{
+  margin:6px 0 0;
+  color:#6b7280;
+  font-weight:700;
+}
+
+/* Search */
+.products-search{
+  display:flex;
+  gap:10px;
+  align-items:center;
+}
+
+/* ===== Cards (glass) SOLO dentro de Products ===== */
+.products-page .card{
+  background: rgba(255,255,255,.50);
+  border: 1px solid rgba(17,24,39,.10);
+  border-radius: 18px;
+  box-shadow: 0 18px 35px rgba(17,24,39,.06);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.products-page .add-card{
+  padding:14px;
+  margin: 0 4px 18px; /* alineado con cards de users */
+}
+
+.products-page .card-title{
+  margin:0 0 10px;
+  font-size:16px;
+  font-weight:900;
+  color:#111827;
+}
+
+/* ===== Form ===== */
+.products-page .add-form{
+  display:grid;
+  grid-template-columns: 1fr 160px 120px 140px 160px 140px;
+  gap:10px;
+  align-items:end;
+}
+
+@media (max-width: 980px){
+  .products-page .add-form{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.products-page .field label{
+  display:block;
+  font-size:12px;
+  color:#6b7280;
+  font-weight:800;
+  margin:0 0 6px;
+}
+
+.products-page .input{
+  width:100%;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(17,24,39,.14);
+  background: rgba(255,255,255,.75);
+  outline: none;
+  color:#111827;
+}
+
+.products-page .input:focus{
+  border-color: rgba(37,99,235,.45);
+  box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+
+.products-page .w120{ width:120px; }
+.products-page .w90{ width:90px; }
+
+/* ===== Buttons (solo Products) ===== */
+.products-page .btn{
+  border: none;
+  cursor: pointer;
+  border-radius: 14px;
+  padding: 10px 14px;
+  font-weight: 900;
+  transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+  white-space: nowrap;
+}
+
+.products-page .btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(17,24,39,.10);
+  filter: brightness(1.03);
+}
+
+.products-page .btn-gray{
+  background: rgba(255,255,255,.80);
+  border: 1px solid rgba(17,24,39,.12);
+  color:#111827;
+}
+
+.products-page .btn-green{
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color:#fff;
+}
+
+/* ===== Alerts (solo Products) ===== */
+.products-page .alert{
+  padding:10px 12px;
+  border-radius:14px;
+  margin: 10px 4px 12px;
+  font-weight: 800;
+}
+
+.products-page .alert.success{
+  background:#ecfdf5;
+  border:1px solid #bbf7d0;
+  color:#065f46;
+}
+
+/* ===== Grid catálogo ===== */
+.products-grid{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(240px, 1fr));
+  gap:22px;
+  margin: 18px 4px 0;
+  padding-bottom: 16px;
+}
+
+@media (max-width: 1200px){
+  .products-grid{ grid-template-columns: repeat(3, minmax(240px, 1fr)); }
+}
+@media (max-width: 920px){
+  .products-grid{ grid-template-columns: repeat(2, minmax(240px, 1fr)); }
+}
+@media (max-width: 560px){
+  .products-grid{ grid-template-columns: 1fr; }
+}
+
+/* ===== Tarjeta estilo catálogo ===== */
+.products-page .p-card{
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid rgba(17,24,39,.10);
+  background: rgba(255,255,255,.55);
+  box-shadow: 0 18px 35px rgba(17,24,39,.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform .14s ease, box-shadow .14s ease, filter .14s ease;
+}
+
+.products-page .p-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 22px 45px rgba(17,24,39,.12);
+  filter: brightness(1.01);
+}
+
+/* Parte superior */
+.products-page .p-top{
+  position:relative;
+  padding:18px;
+  background: linear-gradient(180deg, rgba(35,167,180,.92), rgba(35,167,180,.55));
+  min-height: 175px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.products-page .p-img{
+  width:110px;
+  height:110px;
+  border-radius:999px;
+  background: rgba(255,255,255,.16);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow: inset 0 0 0 8px rgba(255,255,255,.10);
+}
+
+.products-page .p-img i{
+  font-size:44px;
+  color:#fff;
+}
+
+/* ===== Badges (ENCAPSULADOS) ===== */
+.products-page .p-badges{
+  position:absolute;
+  top:12px;
+  left:12px;
+  right:12px;
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  align-items:flex-start;
+}
+
+.products-page .badge{
+  font-size:12px;
+  font-weight:900;
+  padding:6px 10px;
+  border-radius:999px;
+  background: rgba(255,255,255,.90);
+  color:#111827;
+  border: 1px solid rgba(17,24,39,.10);
+}
+
+.products-page .badge-pan{
+  background: rgba(236,253,245,.92);
+  border-color: rgba(34,197,94,.35);
+}
+
+.products-page .badge-otro{ opacity:.95; }
+
+.products-page .badge-stock{ background: rgba(255,255,255,.92); }
+
+.products-page .badge-stock.ok{
+  background: rgba(236,253,245,.92);
+  border-color: rgba(34,197,94,.35);
+}
+
+.products-page .badge-stock.low{
+  background: rgba(254,242,242,.92);
+  border-color: rgba(239,68,68,.35);
+}
+
+/* ===== Body ===== */
+.products-page .p-body{
+  padding:16px;
+  background: rgba(255,255,255,.78);
+}
+
+.products-page .p-name{
+  margin:0;
+  font-size:16px;
+  font-weight:900;
+  color:#111827;
+}
+
+.products-page .p-price{
+  margin:8px 0 12px;
+  font-size:15px;
+  font-weight:900;
+  color:#374151;
+}
+
+/* ===== Botones Pills (ENCAPSULADOS) ===== */
+.products-page .p-actions{
+  display:flex;
+  gap:10px;
+  align-items:center;
+  flex-wrap: wrap;
+}
+
+.products-page .btn-pill{
+  border:none;
+  cursor:pointer;
+  border-radius:999px;
+  padding:10px 14px;
+  font-weight:900;
+  transition: transform .12s ease, filter .12s ease;
+  white-space:nowrap;
+}
+
+.products-page .btn-pill:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.products-page .btn-edit{
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  color:#fff;
+}
+
+.products-page .btn-del{
+  background: linear-gradient(135deg, #b91c1c, #ef4444);
+  color:#fff;
+}
+
+.products-page .btn-save{
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  color:#fff;
+}
+
+.products-page .btn-cancel{
+  background: rgba(255,255,255,.88);
+  border: 1px solid rgba(17,24,39,.12);
+  color:#111827;
+}
+
+/* ===== Panel editar ===== */
+.products-page .p-edit{
+  margin-top:12px;
+  padding-top:12px;
+  border-top: 1px dashed rgba(17,24,39,.18);
+}
+
+.products-page .p-edit-form .row{ margin-bottom:10px; }
+
+.products-page .p-edit-form label{
+  display:block;
+  font-size:12px;
+  font-weight:900;
+  color:#6b7280;
+  margin:0 0 6px;
+}
+
+.products-page .row-2{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:10px;
+}
+
+.products-page .p-edit-actions{
+  display:flex;
+  gap:10px;
+  margin-top:10px;
+  flex-wrap: wrap;
+}
+
+.products-page .empty-cards{
+  margin: 0 4px;
+  padding:18px;
+  color:#6b7280;
+  font-weight:900;
+  border: 1px dashed rgba(17,24,39,.20);
+  border-radius: 18px;
+  background: rgba(255,255,255,.55);
+}
+
+/* ===== Responsive (como Users) ===== */
+@media (max-width: 1100px){
+  .products-head{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .products-search{
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .products-page .input{
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 480px){
+  .products-title{ font-size: 22px; }
+  .products-subtitle{ font-size: 13px; }
+  .products-page .btn{ width: 100%; }
+}
+/* Header actions (buscador + boton) */
+.products-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+/* ===== Modal (estilo Users, compacto) ===== */
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  background: rgba(17,24,39,.40);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity:0;
+  pointer-events:none;
+  transition:.18s ease;
+  z-index:99999;
+}
+
+.modal{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  opacity:0;
+  pointer-events:none;
+  transition:.18s ease;
+  z-index:100000;
+}
+
+.modal.is-open,
+.modal-backdrop.is-open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.modal-card{
+  width:min(760px, 96vw);
+  border-radius:18px;
+  background: rgba(255,255,255,.86);
+  border:1px solid rgba(17,24,39,.12);
+  box-shadow: 0 22px 60px rgba(17,24,39,.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow:hidden;
+}
+
+/* Header */
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
+  padding:16px 18px 10px;
+}
+
+.modal-title{
+  margin:0;
+  font-size:24px;
+  font-weight:900;
+  letter-spacing:-.4px;
+  color:#111827;
+}
+
+.modal-sub{
+  margin:6px 0 0;
+  color:#6b7280;
+  font-weight:800;
+}
+
+.modal-x{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  border:1px solid rgba(17,24,39,.12);
+  background: rgba(248,250,252,.9);
+  cursor:pointer;
+  font-weight:900;
+}
+
+/* Form */
+.modal-form{
+  padding: 6px 18px 18px;
+}
+
+.modal-grid{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:12px 14px;
+}
+
+/* Forzar inputs del modal bonitos */
+.modal .field label{
+  display:block;
+  font-size:12px;
+  color:#6b7280;
+  font-weight:900;
+  margin:0 0 6px;
+}
+
+.modal .input{
+  width:100%;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(17,24,39,.14);
+  background: rgba(255,255,255,.80);
+  outline:none;
+  color:#111827;
+  font-weight:800;
+}
+
+.modal .input:focus{
+  border-color: rgba(37,99,235,.45);
+  box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+
+/* Layout específico del modal */
+.modal .field-full{ grid-column: 1 / -1; }
+
+/* Botones */
+.modal-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:14px;
+  padding-top:12px;
+  border-top: 1px solid rgba(17,24,39,.08);
+}
+
+@media (max-width: 720px){
+  .modal-card{ width:min(520px, 96vw); }
+  .modal-grid{ grid-template-columns: 1fr; }
+}
+/* ===== Botones modal estilo USUARIOS ===== */
+.modal-actions .btn{
+  border-radius: 16px;
+  padding: 12px 20px;
+  font-weight: 900;
+  font-size: 14px;
+  transition: all .15s ease;
+}
+
+/* Cancelar rojo */
+.modal-actions .btn-gray{
+  background: linear-gradient(135deg, #b91c1c, #ef4444);
+  color:#fff;
+  border:none;
+  box-shadow: 0 10px 22px rgba(239,68,68,.25);
+}
+
+.modal-actions .btn-gray:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* Guardar verde */
+.modal-actions .btn-green{
+  background: linear-gradient(135deg, #15803d, #22c55e);
+  color:#fff;
+  border:none;
+  box-shadow: 0 10px 22px rgba(34,197,94,.25);
+}
+
+.modal-actions .btn-green:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+/* ===== BOTÓN CERRAR MODAL (IGUAL QUE USERS) ===== */
+.modal-x{
+  border: 0;
+  background: rgba(239,68,68,.15);
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #b91c1c;
+  font-size: 20px;
+  transition: background-color .2s ease, color .2s ease, transform .15s ease;
+}
+
+/* Hover rojo intenso */
+.modal-x:hover{
+  background: #dc2626;
+  color: #ffffff;
+}
+
+/* Click efecto pro */
+.modal-x:active{
+  transform: scale(0.95);
+}
+.p-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:10px 0 12px;
+  align-items:center;
+}
+/* =========================================================
+   MODALES (Agregar + Editar) - UNA SOLA BASE
+   ========================================================= */
+
+/* Backdrop */
+.modal-backdrop{
+  position:fixed;
+  inset:0;
+  background: rgba(17,24,39,.45);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  opacity:0;
+  pointer-events:none;
+  transition: opacity .18s ease;
+  z-index: 9998;
+}
+.modal-backdrop.is-open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* Contenedor modal */
+.modal{
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:18px;
+  opacity:0;
+  pointer-events:none;
+  transition: opacity .18s ease;
+  z-index: 9999;
+}
+.modal.is-open{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* Card */
+.modal-card{
+  width:min(760px, 96vw);
+  border-radius:18px;
+  background: rgba(255,255,255,.88);
+  border:1px solid rgba(17,24,39,.12);
+  box-shadow: 0 22px 60px rgba(17,24,39,.22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  overflow:hidden;
+
+  transform: translateY(8px) scale(.99);
+  transition: transform .18s ease;
+}
+.modal.is-open .modal-card{
+  transform: translateY(0) scale(1);
+}
+
+/* Header */
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:14px;
+  padding:16px 18px 10px;
+  border-bottom: 1px solid rgba(17,24,39,.08);
+}
+.modal-title{
+  margin:0;
+  font-size:22px;
+  font-weight:900;
+  letter-spacing:-.4px;
+  color:#111827;
+}
+.modal-sub{
+  margin:6px 0 0;
+  color:#6b7280;
+  font-weight:800;
+  font-size:13px;
+}
+
+/* Botón X (solo UNA vez) */
+.modal-x{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  border:0;
+  background: rgba(239,68,68,.15);
+  cursor:pointer;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#b91c1c;
+  font-size:20px;
+  transition: background-color .2s ease, color .2s ease, transform .15s ease;
+}
+.modal-x:hover{
+  background:#dc2626;
+  color:#fff;
+}
+.modal-x:active{
+  transform: scale(.95);
+}
+
+/* Form */
+.modal-form{
+  padding: 10px 18px 18px;
+}
+
+.modal-grid{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap:12px 14px;
+}
+.modal .field-full{ grid-column: 1 / -1; }
+
+.modal .field label{
+  display:block;
+  font-size:12px;
+  color:#6b7280;
+  font-weight:900;
+  margin:0 0 6px;
+}
+
+.modal .input{
+  width:100%;
+  padding:10px 12px;
+  border-radius:14px;
+  border:1px solid rgba(17,24,39,.14);
+  background: rgba(255,255,255,.85);
+  outline:none;
+  color:#111827;
+  font-weight:800;
+}
+.modal .input:focus{
+  border-color: rgba(37,99,235,.45);
+  box-shadow: 0 0 0 4px rgba(37,99,235,.12);
+}
+
+/* Acciones */
+.modal-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+  margin-top:14px;
+  padding-top:12px;
+  border-top: 1px solid rgba(17,24,39,.08);
+}
+
+/* Botones del modal */
+.modal-actions .btn{
+  border-radius: 16px;
+  padding: 12px 20px;
+  font-weight: 900;
+  font-size: 14px;
+  transition: transform .15s ease, filter .15s ease;
+}
+.modal-actions .btn:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+/* Guardar verde */
+.modal-actions .btn-green{
+  background: linear-gradient(135deg, #15803d, #22c55e);
+  color:#fff;
+  border:none;
+  box-shadow: 0 10px 22px rgba(34,197,94,.25);
+}
+
+/* Cancelar por default (gris) */
+.modal-actions .btn-gray{
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(17,24,39,.12);
+  color:#111827;
+}
+
+/* ✅ Cancelar ROJO SOLO en EDITAR */
+#editProductModal .modal-actions #cancelEditProduct{
+  background: linear-gradient(135deg, #b91c1c, #ef4444) !important;
+  color:#fff !important;
+  border:none !important;
+  box-shadow: 0 10px 22px rgba(239,68,68,.25) !important;
+}
+
+/* Responsive */
+@media (max-width: 720px){
+  .modal-card{ width:min(520px, 96vw); }
+  .modal-grid{ grid-template-columns: 1fr; }
+}
+@media (max-width: 560px){
+  .modal-actions{ flex-direction: column; }
+  .modal-actions .btn{ width:100%; }
+}
+.btn-blue-solid{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 22px;
+  border-radius:16px;
+  font-weight:600;
+  text-decoration:none;
+  color:#fff;
+
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  box-shadow:
+    0 8px 20px rgba(37, 99, 235, 0.35),
+    inset 0 1px 0 rgba(255,255,255,0.25);
+
+  transition: all .25s ease;
+}
+
+.btn-blue-solid:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 28px rgba(37, 99, 235, 0.45),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+}/* =========================
+   BOTONES UNIFICADOS
+========================= */
+.btn,
+.btn-green,
+.btn-purple,
+.btn-red{
+  height:44px;
+  padding:0 18px;
+  border-radius:16px;
+  font-weight:800;
+  font-size:14px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  border:none;
+  cursor:pointer;
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+
+/* SOLO EFECTO LIFT (SIN CAMBIAR COLOR) */
+.btn:hover,
+.btn-green:hover,
+.btn-purple:hover,
+.btn-red:hover{
+  transform:translateY(-2px);
+  box-shadow:0 14px 30px rgba(17,24,39,.18);
+}
+
+/* =========================
+   COLORES FIJOS
+========================= */
+.btn-green{
+  background:#16a34a;
+  color:#fff;
+}
+
+.btn-purple{
+  background:#7c3aed; /* MORADO SIEMPRE */
+  color:#fff;
+}
+
+.btn-red{
+  background:#dc2626;
+  color:#fff;
+}
