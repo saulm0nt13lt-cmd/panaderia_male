@@ -6,6 +6,22 @@
 <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
 @endpush
 
+
+<!-- 
+saul07oct@gmail.com
+435224
+susanatino2811@gmail.com
+12345678
+anacoootes18@gmail.com
+123456
+Susana@gamil.com
+123456
+maxima538@gmail.com
+xd@xd
+123456
+
+-->
+
 @section('content')
 <div class="login-wrap">
     <div class="login-card">

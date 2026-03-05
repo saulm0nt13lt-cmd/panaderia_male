@@ -89,11 +89,7 @@
 
     // ✅ Cerrar: intenta cerrar; si el navegador no deja, regresa al admin
     btnClose?.addEventListener('click', () => {
-      window.close();
-      setTimeout(() => {
-        // si sigue abierta, redirige
-        if (!window.closed) goBack();
-      }, 120);
+     window.location.href = "{{ route('sales') }}";
     });
 
     // Auto imprimir al entrar
