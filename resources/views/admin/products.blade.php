@@ -441,7 +441,12 @@
 
       <div class="field">
           <label>Nombre del Cliente</label>
-          <input class="input" type="text" name="cliente_nombre" maxlength="120" required>
+          <input class="input" 
+          type="text" 
+          name="cliente_nombre" 
+          maxlength="120" 
+          oninput="this.value = this.value.replace(/[0-9]/g, '')" 
+          required>
         </div>
 
         <div class="field">
