@@ -255,7 +255,11 @@
 
           <div class="field">
             <label>Nombre</label>
-            <input class="input" name="nombre" id="nombre" required>
+            <input class="input" 
+            name="nombre" 
+            id="nombre" 
+            oninput="this.value = this.value.replace(/[0-9]/g, '')" 
+            required>
           </div>
 
           <div class="field">
@@ -342,7 +346,11 @@
         <div class="modal-grid">
           <div class="field field-full">
             <label>Nombre</label>
-            <input class="input" name="nombre" id="edit_nombre" required>
+            <input class="input" 
+            name="nombre" 
+            id="edit_nombre" 
+            oninput="this.value = this.value.replace(/[0-9]/g, '')" 
+            required>
           </div>
 
           <div class="field">
@@ -456,7 +464,7 @@
 
         <div class="field">
           <label>Teléfono celular</label>
-          <input class="input" type="tel" name="cliente_telefono" maxlength="20" placeholder="Ej. 246293819" required>
+          <input class="input" type="number" name="cliente_telefono" maxlength="20" placeholder="Ej. 246293819" required>
         </div>
 
         <div class="field">
