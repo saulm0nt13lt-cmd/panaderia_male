@@ -295,7 +295,12 @@
 
           <div class="field dyn dyn-pastel" style="display:none;">
             <label>Sabor</label>
-            <input class="input" name="sabor" id="sabor" maxlength="60" placeholder="Ej. Chocolate, Vainilla…">
+            <input class="input"
+             name="sabor" 
+             id="sabor" 
+             maxlength="60" 
+             oninput="this.value = this.value.replace(/[0-9]/g, '')" 
+             placeholder="Ej. Chocolate, Vainilla…">
           </div>
 
           {{-- ROSCAS --}}
@@ -311,7 +316,11 @@
 
           <div class="field dyn dyn-rosca" style="display:none;">
             <label>Relleno</label>
-            <input class="input" name="relleno" id="relleno" maxlength="80">
+            <input class="input" 
+            name="relleno" 
+            id="relleno" 
+            oninput="this.value = this.value.replace(/[0-9]/g, '')" 
+            maxlength="80">
           </div>
         </div>
 
