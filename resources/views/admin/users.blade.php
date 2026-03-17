@@ -211,13 +211,20 @@
       <div class="grid">
         <div class="field">
           <label>Nombre completo</label>
-          <input name="nombre_completo" required value="{{ old('nombre_completo') }}">
+          <input 
+          name="nombre_completo" 
+          required 
+          oninput="this.value = this.value.replace(/[0-9]/g, '')" 
+          value="{{ old('nombre_completo') }}">
           @error('nombre_completo') <small class="err">{{ $message }}</small> @enderror
         </div>
 
         <div class="field">
           <label>Usuario</label>
-          <input name="username" required value="{{ old('username') }}">
+          <input name="username" 
+          required 
+           oninput="this.value = this.value.replace(/[0-9]/g, '')" 
+          value="{{ old('username') }}">
           @error('username') <small class="err">{{ $message }}</small> @enderror
         </div>
 
